@@ -584,7 +584,7 @@ and their removal will affect sentiment scores. We will leave them in, for now.
 If you have any issues, reload the backup.
 By now, you should have a dataframe with an additional column of "Text_Processed".
 ```
-colnames(Data)
+colnames(NRC_Amazon_Reviews)
 ```
 
 
