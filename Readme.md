@@ -2,7 +2,7 @@
 
 Hello Everyone! This is the Readme File for the Comparing Sentiment Analysis Methods in R.
 
-This workshop focused on how to start working with sentiment and introducing you to several tools.
+This workshop is focused on how to start working with sentiment and introducing you to several tools.
 
 Alex Crest and Aybuke Atalay developed and curated the material in this repo.
 
