@@ -9,10 +9,15 @@ Alex Crest and Aybuke Atalay developed and curated the material in this repo.
 In this course, we are going to cover:
 
 How to use and analyse sentiment
+
 When to use which methods
+
 Data processing
+
 Summarising and interpreting results
+
 Validating Results
+
 Visualising with R
 
 
