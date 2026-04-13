@@ -89,7 +89,6 @@ We will be using the following packages for today
 
 library(tidyverse)
 library(tidytext)
-library(sentimentr)
 library(syuzhet)
 library(jsonlite)
 library(quanteda)
