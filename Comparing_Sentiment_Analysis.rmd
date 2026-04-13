@@ -231,6 +231,10 @@ Amazon_Reviews <- Amazon_Reviews %>%
     nrc_negative = -nrc_negative
   )
 
+If the net sentiment is above zero, it is positive, and if below zero, it is negative
+
+
+
 
 Let's get the mean scores for the entire dataset
 sentiment_means <- Amazon_Reviews %>%
@@ -290,6 +294,11 @@ ggplot(plot_data,
   )
 
 ggsave("Extreme_Net_Sentiment_by_Book.png")
+
+
+
+
+
 
 More complex interpretation will be discussed in the second half.
 
