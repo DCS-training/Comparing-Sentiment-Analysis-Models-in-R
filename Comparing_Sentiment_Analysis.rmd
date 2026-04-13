@@ -409,7 +409,9 @@ ggplot(sentiment_results,
   )
 
 # A comparison task: which works better on different level of analysis. The book reviews 15 minutes
-- A fourth preprocessed dataset. Apply each of them to one pre-processed dataset.
+- A fourth preprocessed dataset. Apply each of them to one pre-processed dataset: applied back the amazon reviews. 
+- Base code but don't talk them through it
+- what is the utility of doing this?
 
 Comparing the datasets and comparing what we can do.
 
