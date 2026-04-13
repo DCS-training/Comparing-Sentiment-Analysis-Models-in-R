@@ -408,11 +408,10 @@ ggplot(sentiment_results,
     y = "Net Sentiment per Word"
   )
 
+# A comparison task: which works better on different level of analysis. The book reviews 15 minutes
+- A fourth preprocessed dataset. Apply each of them to one pre-processed dataset.
 
-
-
-# Wrap Up
-
+Comparing the datasets and comparing what we can do.
 
 # Further Reading
 
