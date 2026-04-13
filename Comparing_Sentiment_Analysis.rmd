@@ -22,7 +22,8 @@ R.version.string
 
 install.packages("installr")
 library(installr)
-updateR()```
+updateR()
+```{r}
 
 # Schedule
 
