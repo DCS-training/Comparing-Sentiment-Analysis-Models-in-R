@@ -1,9 +1,4 @@
----
-title: "Readme"
-author: "Alex Crest"
-date: "2026-04-01"
-output: html_document
----
+# Comparing Sentiment Analysis Methods in R
 
 Hello Everyone! This is the Readme File for the Comparing Sentiment Analysis Methods in R.
 
