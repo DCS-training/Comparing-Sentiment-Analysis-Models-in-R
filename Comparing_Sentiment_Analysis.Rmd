@@ -18,7 +18,7 @@ This is the MD file for Comparing Sentiment Analysis in R. It is designed to be 
 
 Before the session starts, make sure you have R 4.5.3 installed and running!
 
-```
+```{r}
 R.version.string
 install.packages("installr")
 library(installr)
@@ -88,7 +88,7 @@ Using the `Tidyverse` functions, we have a variety of very useful tools to tidy 
 
 We will be using the following packages for today
 
-```
+```{r}
 install.packages(c("tidyverse", "sentimentr", "jsonlite", "syuzhet", "quanteda", "readr", "purrr", "tokenizers", "textdata", "ggplot2"))
 ```
 
