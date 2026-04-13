@@ -8,21 +8,21 @@ editor_options:
     wrap: 72
 ---
 
-## Comparing Sentiment Analysis Models in R
-### 400 lines
+# Comparing Sentiment Analysis Models in R
+
 Hello World! I hope you are all ready to get stuck in with sentiment.           (positive: 0.071, neutral: 0.857, negative: 0)
 Today, we are looking to build our knowledge, and to                            (positive: 0, neutral: 1, negative: 0)
 provide you with the tools to conduct sentiment analysis in your own research.  (positive: 0, neutral: 1, negative: 0)
 
-This is the MD file for Comparing Sentiment Analysis in R. It is designed to be used as part of a workshop, along with a presentation. Please refer to the associated presentation for introduction and intial guidance.
+This is the MD file for Comparing Sentiment Analysis in R. It is designed to be used as part of a workshop, along with a presentation. Please refer to the associated presentation for introduction and initial guidance.
 
-Before the session starts, make sure your have R 4.5.3 installed and running!
+Before the session starts, make sure you have R 4.5.3 installed and running!
 R.version.string
 ```install.packages("installr")
 library(installr)
 updateR()```
 
-Schedule
+# Schedule
 
 Session start 14:05
 
@@ -37,16 +37,9 @@ Session start 14:05
 15:50 - 16:00 6) Final Q and A. Complete up to here
 
 
-, 8) Optional Signposting: Sentiment Analysis in Python
-- Vader
-- Bert
+## 1) Housekeeping and Set Up
 
-9) Review this session
-
-
-1) Housekeeping and Set Up
-
-# Aims
+### Aims
 
 Understanding what sentiment analysis is and its utility
 Processing data
@@ -55,7 +48,7 @@ Building skills in R
 Summarising and comparing sentiment results with other variables
 Saving data including to plots, .csv, and .json. 
 
-# Setting
+### Setting
 
 The work will be completed between this markdown and your own local environment on R.
 
@@ -71,11 +64,11 @@ Click Create Project
 
 We're ready to go!
 
-2) Introduction to Sentiment Analysis: What, Why, How?
+## 2) Introduction to Sentiment Analysis: What, Why, How?
 
 Focus on the presentation, nothing needed here just now!
 
-3) Practical: A Comparative look at Three Examples
+## 3) Practical: A Comparative look at Three Examples
 
 Before any text analysis, your data needs to be preprocessed. Today we will be working with three datasets:
 A collection of 5,000 book reviews from Amazon (Courtesy of Hou et al. 2024).
@@ -109,7 +102,7 @@ library(ggplot2)
 
 If you have any issues installing these, let us know now, and we can fix the issue promptly.
 
-# Accessing the data
+## Accessing the data
 Now we have our environment, we need to load the data!
 Now we need to load this data into our workspace. Usually, we would have to find it, either from an online repository, collect or build it ourselves.
 However, today, the Amazon Reviews and The Gettsberg Address are already loaded into the directory. We can also load the presidential addresses.
@@ -123,7 +116,7 @@ The innaugural addresses are a dataset that already exists in quanteda! We just 
 Inaugural_Address_Post_1900 <- corpus_subset(
   data_corpus_inaugural, Year >= 1900)
   
-# Now convert the object to a dataframe with associated metadata
+Now convert the object to a dataframe with associated metadata
 Inaugural_Addresses <- data.frame(
   Year = docvars(Inaugural_Address_Post_1900, "Year"),
   President = docvars(Inaugural_Address_Post_1900, "President"),
@@ -132,14 +125,14 @@ Inaugural_Addresses <- data.frame(
 
 You will notice that each medium has different characteristics (long speech, short phrases, punctuation etc.) that need to be considered for the type of sentiment analysis.
 
-# It is best practice to also create a backup of your data incase any step goes wrong.
+It is best practice to also create a backup of your data incase any step goes wrong.
 ```Backup_Data <- Data```
 
 ```Backup_Amazon_Reviews <- Amazon_Reviews```
 
-# Create backups of the other two datasets
+Create backups of the other two datasets
 
-# To reload the backup, simply reverse it
+To reload the backup, simply reverse it
 ```Amazon_Reviews <- Backup_Amazon_Reviews```
 
 There are three steps to sentiment Analyis:
@@ -151,20 +144,19 @@ They are also clean, so this is a relatively painless process. We need to transf
 
 We are going to go through steps 1 - 3 for each dataset on its own, and after the break compare them in more detail with other tools.
 
+### Amazon Reviews
 
-# Amazon Reviews
+This is a big dataset, far larger than a single research could quantitively review. Note that the methods today can be scaled up for larger datasets still!
 
-# This is a big dataset, far larger than a single research could quantitively review. Note that the methods today can be scaled up for larger datasets still!
-
-# First, let's inspect the data to understand its composition
+First, let's inspect the data to understand its composition
 ```head(Data)
 colnames(Data)
 sapply(Data, class)```
 
-# We will keep all the columns for now, but they provide useful variables for comparison later on. 
-# The column we are concerned with for sentiment is 'text', containing the raw text data.
-# In the following line we will reduce all text to lowercase, and remove extra spaces.
-# We are going to use 'mutate', which creates a new column, from all the instructions after the pipe '%>%'
+We will keep all the columns for now, but they provide useful variables for comparison later on. 
+The column we are concerned with for sentiment is 'text', containing the raw text data.
+In the following line we will reduce all text to lowercase, and remove extra spaces.
+We are going to use 'mutate', which creates a new column, from all the instructions after the pipe '%>%'
 
 ```Amazon_Reviews <- Amazon_Reviews %>%
   mutate(Text_Processed = text %>%                    # creates a new column
@@ -174,19 +166,19 @@ sapply(Data, class)```
          )
          
 ```
-# We have created a new column, and preserved the raw data
-# for the method we are using, we need to tokenise, that is devide up the sentences into lists of words
+We have created a new column, and preserved the raw data
+for the method we are using, we need to tokenise, that is devide up the sentences into lists of words
 ```Amazon_Reviews <- Amazon_Reviews %>%
   mutate(tokens = tokenize_words(Text_Processed))```
 
-# A note of caution, text preprocessing often includes removing stopwords, but words such as 'no' 'yes' 'he' 'here' are meaning-laden
-# and their removal will affect sentiment scores. We will leave them in, for now.
+A note of caution, text preprocessing often includes removing stopwords, but words such as 'no' 'yes' 'he' 'here' are meaning-laden
+and their removal will affect sentiment scores. We will leave them in, for now.
 
-# If you have any issues, reload the backup, and try again!
-# By now, you should have a dataframe with an additional column of "Text_Processed".
+If you have any issues, reload the backup, and try again!
+By now, you should have a dataframe with an additional column of "Text_Processed".
 ```colnames(Data)```
 
-# We are now ready to conduct sentiment analysis on the dataset
+We are now ready to conduct sentiment analysis on the dataset
 We are going to use the NRC lexicon, a dictionary of thousands of terms that have been tagged positive, negative, and also given an emotional tag:
 anger
 fear
@@ -198,16 +190,15 @@ surprise
 anticipation
 
 
-# Lets load the lexicon
+Let's load the lexicon
 nrc <- get_sentiments("nrc")
 
-# Now create a reference list of NRC words grouped by sentiment category
+Now create a reference list of NRC words grouped by sentiment category
 nrc_lookup <- split(nrc$word, nrc$sentiment)
 
 
-
-# now lets apply it, and assign scores to each review
-# we are also going to nest the results in each row in a new column called sentiment_scores, for tidiness
+Now let's apply it, and assign scores to each review
+We are also going to nest the results in each row in a new column called sentiment_scores, for tidiness
 Amazon_Reviews <- Amazon_Reviews %>%                                      # #start with reviews dataset that already contains token lists
   mutate(
     sentiment_scores = purrr::map(tokens, \(x) {                         # #for each review, work through its tokens
@@ -237,25 +228,25 @@ Amazon_Reviews <- Amazon_Reviews %>%
     nrc_negative = negative
   )
 
-#for ease of processing, we are going to convert the negative sentiment to negative numbers
+For ease of processing, we are going to convert the negative sentiment to negative numbers
 Amazon_Reviews <- Amazon_Reviews %>%
   mutate(
     nrc_negative = -nrc_negative
   )
 
 
-# Lets get the mean scores for the entire dataset
+Let's get the mean scores for the entire dataset
 sentiment_means <- Amazon_Reviews %>%
   summarise(across(starts_with("nrc_"), mean, na.rm = TRUE))
   
 print(sentiment_means)
 
-# Now lets investigate net senitment for three specific book titles
+Now lets investigate net senitment for three specific book titles
 Amazon_Reviews <- Amazon_Reviews %>%
   mutate(
     net_sentiment = nrc_positive + nrc_negative,
   )
-# Let's group by title
+Let's group by title
 book_sentiment <- Amazon_Reviews %>%
   group_by(meta_title) %>%
   summarise(
@@ -266,7 +257,7 @@ book_sentiment <- Amazon_Reviews %>%
 
 
 
-# Now lets see the books with the highest and lowest sentiment
+Now let's see the books with the highest and lowest sentiment
 
 top_3 <- book_sentiment %>%
   arrange(desc(mean_net_sentiment)) %>%
@@ -285,9 +276,9 @@ book_sentiment <- book_sentiment %>%
 
 
 
-#If you have worked in R before, you may have used ggplot or ggplot2 to plot your data. 
-#Sentiment can be plotted much as any other variable, but here we will guide you through
-#best practices and appropriate plots for the models we have used.
+If you have worked in R before, you may have used ggplot or ggplot2 to plot your data. 
+Sentiment can be plotted much as any other variable, but here we will guide you through
+best practices and appropriate plots for the models we have used.
 
 ggplot(plot_data, 
        aes(y = reorder(str_c(word(meta_title, 1, 3), "..."), 
@@ -305,13 +296,13 @@ ggsave("Extreme_Net_Sentiment_by_Book.png")
 
 More complex interpretation will be discussed in the second half.
 
-# Optional
-# I want to know about these three books:
-#  The Song of Achilles: A Novel
-#  Mary Berry Quick Cooking
-#  No Country for Old Men
+### Optional
+I want to know about these three books:
+The Song of Achilles: A Novel
+Mary Berry Quick Cooking
+No Country for Old Men
   
-# selected_titles <- c(
+selected_titles <- c(
 #  "The Song of Achilles: A Novel",
 #  "Mary Berry Quick Cooking",
 #  "No Country for Old Men"
