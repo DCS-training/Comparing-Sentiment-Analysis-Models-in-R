@@ -33,7 +33,7 @@ Select RStudio as a personal notebook server and press start
 
 Go to File > New Project> Version Control > Git
 
-Copy and Paste this repository URL https://github.com/DCS-training/IntroToRAndRStudio as the Repository URL (The Project directory name will be filled in automatically but you can change it if you want your folder in Notable to have a different name).
+Copy and Paste this repository URL https://github.com/DCS-training/Comparing-Sentiment-Analysis-Models-in-R as the Repository URL (The Project directory name will be filled in automatically but you can change it if you want your folder in Notable to have a different name).
 
 Decide where to locate the folder. By default, it will locate it in your home directory
 
