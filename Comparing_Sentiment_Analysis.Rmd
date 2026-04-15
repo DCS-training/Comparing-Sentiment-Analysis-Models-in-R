@@ -755,20 +755,21 @@ feedback or assistance, please book a data surgery with us.
 For more on the utility of sentiment analysis and their critiques, read
 the following papers.
 
+Devika, M. D., Sunitha, C., & Ganesh, A. (2016). Sentiment analysis: a
+comparative study on different approaches. Procedia Computer Science,
+87, 44-49.
+
 Gonçalves, P., Araújo, M., Benevenuto, F., & Cha, M. (2013, October).
 Comparing and combining sentiment analysis methods. In Proceedings of
 the first ACM conference on Online social networks (pp. 27-38).
 
-Devika, M. D., Sunitha, C., & Ganesh, A. (2016). Sentiment analysis: a
-comparative study on different approaches. Procedia Computer Science,
-87, 44-49.
+Shiha, M., & Ayvaz, S. (2017). The effects of emoji in sentiment
+analysis. Int. J. Comput. Electr. Eng.(IJCEE.), 9(1), 360-369.
 
 Wankhade, M., Rao, A. C. S., & Kulkarni, C. (2022). A survey on
 sentiment analysis methods, applications, and challenges. Artificial
 intelligence review, 55(7), 5731-5780.
 
-Shiha, M., & Ayvaz, S. (2017). The effects of emoji in sentiment
-analysis. Int. J. Comput. Electr. Eng.(IJCEE.), 9(1), 360-369.
 
 # A Tutorial for Advanced Sentiment in Python
 
