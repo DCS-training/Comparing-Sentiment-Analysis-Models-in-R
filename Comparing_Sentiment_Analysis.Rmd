@@ -772,7 +772,7 @@ intelligence review, 55(7), 5731-5780.
 
 
 # A Tutorial for Advanced Sentiment in Python
-
+This is a useful tutorial for more advanced learning:
 <https://github.com/DCS-training/SentimentAnalysis>
 
 # References:
