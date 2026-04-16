@@ -196,7 +196,7 @@ then compare in more detail.
 # Amazon Reviews
 
 This is a big dataset, larger than a single researcher could reasonably
-quantitively review. Note that the methods today can be scaled up for
+qualitatively review. Note that the methods today can be scaled up for
 larger datasets still!
 
 First, let's **inspect** the data to understand its composition
