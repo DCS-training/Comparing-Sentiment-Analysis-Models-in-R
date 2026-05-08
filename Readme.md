@@ -71,7 +71,9 @@ Search for RStudio in the search bar
 
 Install the R 4.4.1(with RStudio 2024.04.2) NB this will take quite some time so make sure to do it ahead of the first class
 
-All material collected here is free to use but is covered by a License: License: CC BY-NC 4.0 license
+
+## License
+All material collected here is free to use but is covered by a License: [![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/) license
 
 
 
